@@ -1,0 +1,26 @@
+# show the .a content
+ar -t libc.a | tee art_libc 
+
+# extra the .o file from lib
+ar -x libc.a
+
+# print the symbol table of .o file
+objdump -t printf.o
+
+# no-builtin to avoid replace printf with put
+gcc -c -fno-builtin hello.c
+
+# print the full and disassemble object info
+objdump -s -d hello.o
+
+# show the section header info 
+# objdump para 
+# -h : show section header 
+# -s : show full section info
+# -d : disassemble object 
+# -t : show symbol table
+objdump -h -s hello.o
+
+# link fail/OK sample
+ld hello.o libc.a
+gcc --verbose -fno-builtin hello.c
