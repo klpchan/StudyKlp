@@ -1,0 +1,8 @@
+file /bin/bash
+
+file /lib64/ld-linux-x86-64.so.2
+
+//-d is optional
+objdump -x -s  *.o | tee objdump_result
+
+readelf -a SimpleSection.o | tee readelf_result

@@ -19,6 +19,7 @@ objdump -s -d hello.o
 # -s : show full section info
 # -d : disassemble object 
 # -t : show symbol table
+# -x : display full header info
 objdump -h -s hello.o
 
 # link fail/OK sample
